@@ -14,15 +14,37 @@
 //]
 function getRoutes() {
   return [
-    "" => [
-      "exemple",
-      "welcome"
+    // "" => [
+    //   "exemple",
+    //   "welcome"
+    // ],
+
+
+    "emprunteurs" => [
+      "emprunteur",
+      "getEmprunteur",
+      // "status" => "admin"
     ],
-    "login" => [
-      "admin",
-      "loginUser",
-    ]
-  ];
+    "emprunteur/ajout" => [
+     "emprunteur",
+     "addEmprunteur",
+    //  "status" => "admin"
+    ],
+    "emprunteur/edit" => [
+     "emprunteur",
+     "editEmprunteur",
+     ["id" => ["integer"]
+    ],
+    //  "status" => "admin"
+    ],
+    "emprunteur/suppr" => [
+     "emprunteur",
+     "deleteEmprunteur",
+     ["id" => ["integer"]
+    ],
+    //  "status" => "admin"
+    ],
+];
 }
 
  ?>
