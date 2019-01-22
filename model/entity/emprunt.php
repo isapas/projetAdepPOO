@@ -1,6 +1,6 @@
 <?php 
 
-	class emprunts extends entity {
+	class emprunt extends entity {
 
 		//attributes
 		protected $idEmprunteur;
