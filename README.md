@@ -82,3 +82,8 @@ Si vous un service ou autre fichier doit être accessible dans toutes les pages,
 
 Si un fichier n'est accessible que dans un contrôleur en particulier, alors il convient de le charger dans le contrôleur en question avant de déclarer les fonctions de celui-ci.
 # projetAdepPOO
+<<<<<<< HEAD
+=======
+# projetAdepPOO
+# projetAdepPOO
+>>>>>>> 1b87c9ebb0e7698dad757822bc6940ce455aa6df
