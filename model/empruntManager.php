@@ -25,7 +25,7 @@
         return $result;
       }
 
-      public function sortlistEmpruntsMateriels($tri) {
+      public function sortMateriels($tri) {
         $text = "";
         switch ($tri) {
           case 'nomAZ':
@@ -44,7 +44,7 @@
        return $result;
       }
 
-      function sortMyEmpruntsList($idEmprunteur,$tri) {
+      function sortMyEmprunts($idEmprunteur,$tri) {
         $text = "";
         switch ($tri) {
           case '0':
@@ -60,10 +60,10 @@
                         inner join materiel m on m.id = e.idMateriel
                         WHERE  e.idEmprunteur = ? '.$text.' order by dateEmprunt desc');
         $query->execute([$id_emprunteur]);
-         $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
         $query->closeCursor();
         return $result;
       }
 
-      
+
  ?>
