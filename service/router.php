@@ -17,7 +17,7 @@ function getCurrentRequest() {
 function checkUserCredential($route) {
   session_start();
   $config = getGlobalConfig();
-  var_dump($_SESSION["user"]);
+  //var_dump($_SESSION["user"]);
   if(!isset($_SESSION["user"]) || $_SESSION["user"]->getStatus() === NULL) {
     redirectTo($config["defaultRoute"]);
   }
