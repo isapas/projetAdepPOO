@@ -14,12 +14,14 @@
 //]
 function getRoutes() {
   return [
-    // "" => [
-    //   "exemple",
-    //   "welcome"
-    // ],
-
-
+    "" => [
+      "index",
+      "login"
+    ],
+    "login" => [
+      "admin",
+      "loginUser",
+    ],
     "emprunteurs" => [
       "emprunteur",
       "getEmprunteur",
@@ -44,7 +46,33 @@ function getRoutes() {
     ],
     //  "status" => "admin"
     ],
-];
+    // START MATERIEL ROUTES
+    "materiels" => [
+     "materiel",
+     "listMateriel",
+     // "status" => "admin"
+   ],
+    "materiels/ajout" => [
+     "materiel",
+     "add",
+     // "status" => "admin"
+   ],
+    "materiels/edit" => [
+     "materiel",
+     "edit",
+     ["id" => ["integer"]
+   ],
+     // "status" => "admin"
+   ],
+    "materiels/suppr" => [
+     "materiel",
+     "delete",
+     ["id" => ["integer"]
+     ],
+     // "status" => "admin"
+    ],
+    // END MATERIEL ROUTES
+  ];
 }
 
  ?>
