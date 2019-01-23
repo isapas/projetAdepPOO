@@ -25,7 +25,7 @@
         return $result;
       }
 
-      public function sortMateriels($tri) {
+      public function getSortedMateriels($tri) {
         $text = "";
         switch ($tri) {
           case 'nomAZ':
@@ -44,7 +44,7 @@
        return $result;
       }
 
-      function sortMyEmprunts($idEmprunteur,$tri) {
+      function getSortedMyEmprunts($idEmprunteur,$tri) {
         $text = "";
         switch ($tri) {
           case '0':
