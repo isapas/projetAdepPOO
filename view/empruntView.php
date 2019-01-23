@@ -1,4 +1,4 @@
-<?php include "view/template/header.php"; ?>
+<?php include "template/header.php"; ?>
 <?php
 //var_dump($_SESSION["codeMsg"][0]);
 //var_dump($_POST);
@@ -55,7 +55,7 @@ if (isset($_SESSION["codeMsg"][0])) { ?>
          ?>
         <tbody>
           <tr>
-            <td scope="row"><?php echo $value['nom'] ?></td>
+            <td scope="row"><?php echo $materiel['nom'->getMateriel] ?></td>
             <td class="d-none d-md-table-cell text-center"><?php echo $materiel['description'] ?> </td>
             <td class="d-none d-md-table-cell text-center"><?php echo ($materiel['etat']== 1)?"En stock":"Indisponible"; ?></td>
             <td class="d-none d-md-table-cell text-center"><?php echo ($materiel['acces']==1)?"Libre":"Restreint"; ?></td>

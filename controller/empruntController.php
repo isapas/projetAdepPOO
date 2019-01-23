@@ -1,5 +1,5 @@
 <?php
-
+  
   require "model/empruntManager.php";
   require "model/materielManager.php"; //pour les fonctions qui servent à l'emprunt
   //var_dump(implode(',',getdate()));
@@ -7,10 +7,12 @@
 
   class empruntController {
 
-
       public function sortMaterielList() {
+        $manager = new empruntManager();
+        //récupère la liste de tous le materiel
+        $materiels = $manager->getSortedMateriels();
         if(isset($_POST) && !empty($_POST)) {
-        //alors fonction avec requete de tri
+          //alors fonction avec requete de tri
           if(getSortedMateriels($_POST['triMaterielsEmprunts'])){
             $materiels =  getSortedMateriels($_POST['triMaterielsEmprunts']);
           }

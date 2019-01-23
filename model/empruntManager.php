@@ -1,6 +1,5 @@
 <?php 
 
-
   class empruntManager extends manager {
 
     //fonction pour ajouter un emprunt,qui attend un objet emprunt
@@ -17,7 +16,7 @@
     }
 
     //fonction qui update l'état du matériel en fonction de son id quand l'utilisateur  clique sur emprunter page empruntsView.php
-      public function updateEtatMateriel(emprunt $idMateriel) {
+      public function updateEtatMateriel(emprunt $emprunt) {
         
         $query = $this->getDb()->prepare ('UPDATE materiel SET etat = :etat WHERE id = :id');
         $result = $query->execute(array(
@@ -47,7 +46,7 @@
        return $result;
       }
 
-      function getSortedMyEmprunts(emprunt $idEmprunteur,$tri) {
+      function getSortedMyEmprunts($idEmprunteur,$tri) {
         $text = "";
         switch ($tri) {
           case '0':
