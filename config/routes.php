@@ -60,7 +60,7 @@ function getRoutes() {
     //start roads for borrow
    "emprunter/list" => [
      "emprunt",
-     "allMateriels",
+     "sortMaterielList",
      "status" => "user"
    ],
 
@@ -72,9 +72,9 @@ function getRoutes() {
       "status" => "user"
     ],
 
-    "restituer/list" => [
+    /*"restituer/list" => [
       "emprunt",
-      "allEmprunts",
+      "sortMaterielList",
       "status" => "admin"
     ],
 
@@ -87,10 +87,10 @@ function getRoutes() {
 ],
     "emprunts/list" => [
       "emprunt",
-      "myEmprunts",
+      "getSortedMyEmprunts",
       "status" => "user"
 
-    ]
+    ]*/
 // end roads for borrow
   ];
 }
