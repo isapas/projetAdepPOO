@@ -51,17 +51,17 @@ if (isset($_SESSION["codeMsg"][0])) { ?>
 
         //récupère toutes les entrées de la table materiel
         //affiche les données sur chaque entrée dans le tableau
-          foreach ($materiels as $key => $value) {
+          foreach ($materiels as $key => $materiel) {
          ?>
         <tbody>
           <tr>
             <td scope="row"><?php echo $value['nom'] ?></td>
-            <td class="d-none d-md-table-cell text-center"><?php echo $value['description'] ?> </td>
-            <td class="d-none d-md-table-cell text-center"><?php echo ($value['etat']== 1)?"En stock":"Indisponible"; ?></td>
-            <td class="d-none d-md-table-cell text-center"><?php echo ($value['acces']==1)?"Libre":"Restreint"; ?></td>
+            <td class="d-none d-md-table-cell text-center"><?php echo $materiel['description'->getDescription()] ?> </td>
+            <td class="d-none d-md-table-cell text-center"><?php echo ($materiel['etat'->getEtat()]== 1)?"En stock":"Indisponible"; ?></td>
+            <td class="d-none d-md-table-cell text-center"><?php echo ($materiel['acces'->getAcces()]==1)?"Libre":"Restreint"; ?></td>
             <td>
               <div>
-                <a <?php setHref('emprunter',['id' => $value['id']]) ?> class='btn btn-primary btn-xs text-center <?php echo ($value['etat']== 0)?"disabled bts-secondary":""; ?> ' > Emprunter</a>
+                <a <?php setHref('emprunter',['id' => $materiel['id'->getId()]]) ?> class='btn btn-primary btn-xs text-center <?php echo ($materiel['etat'->getEtat()]== 0)?"disabled bts-secondary":""; ?> ' > Emprunter</a>
               </div>
             </td>
           </tr>

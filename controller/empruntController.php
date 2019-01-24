@@ -10,19 +10,20 @@
       public function sortMaterielList() {
         $manager = new empruntManager();
         //récupère la liste de tous le materiel
-        $materiels = $manager->getSortedMateriels();
+        $materiels = $manager->getSortedMateriels($_POST);
+        
         if(isset($_POST) && !empty($_POST)) {
           //alors fonction avec requete de tri
           if(getSortedMateriels($_POST['triMaterielsEmprunts'])){
-            $materiels =  getSortedMateriels($_POST['triMaterielsEmprunts']);
+            $materiels = getSortedMateriels($_POST['triMaterielsEmprunts']);
           }
           else {
             $materiels = NULL;
           }
         }
         else {
-          if(getSortedMateriels('nomAZ')){
-          $materiels =  getSortedMateriels('nomAZ');
+          if(getSortedMateriels($_POST['nomAZ'])){
+          $materiels = getSortedMateriels($_POST['nomAZ']);
           }
           else {
             $materiels = NULL;
