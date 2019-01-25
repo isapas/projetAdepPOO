@@ -13,7 +13,7 @@ if (isset($_SESSION["codeMsg"][0])) { ?>
         <div class="modal-body">
           <div class="alert alert-success text-center mt-2" role="alert">
             <?php
-            echo afficheErrorMsg($_SESSION["codeMsg"][0],"Les emprunteurs");
+            echo afficheErrorMsg($_SESSION["codeMsg"][0],"L'emprunteur");
             array_pop($_SESSION["codeMsg"]); //retire le code de la session
             ?>
           </div>

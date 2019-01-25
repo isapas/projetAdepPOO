@@ -6,7 +6,7 @@ class dataBase {
 
   const host  = "localhost";
   const dbName = "EmpruntsAdep";
-  const login = "ben";
+  const login = "root";
   const mdp = "test";
 
   static public function BD() {
