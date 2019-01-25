@@ -1,7 +1,8 @@
 <?php
-require "model/dataBase.php";
-//require "model/entity/emprunteur.php";
-require "model/emprunteurManager.php";
+// require "model/dataBase.php";
+// //require "model/entity/emprunteur.php";
+// require "model/emprunteurManager.php";
+require "service/errorMsg.php";
 
 class emprunteurController{
 

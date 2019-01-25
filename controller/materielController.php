@@ -1,7 +1,5 @@
 <?php
-require "model/dataBase.php";
-require "model/entity/materiel.php";
-require "model/materielManager.php";
+require "service/errorMsg.php";
 
 class materielController{
 
@@ -88,6 +86,8 @@ class materielController{
     }
     require "view/materielView.php";
   }
+
+
 
 }
 

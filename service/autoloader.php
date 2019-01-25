@@ -5,7 +5,7 @@ class autoloader {
   //On enregistre dans des constantes de classe les entités, les services et les managers
   const entity = ["entity", "user","emprunteur","emprunt", "materiel"];
   const service= ["autoloader","errorMsg"];
-  const manager = ["dataBase","manager" ,"empruntManager","materielManager"];
+  const manager = ["dataBase","manager" ,"emprunteurManager","empruntManager","materielManager"];
   //Fonction qui appelle l'autoload register qui se base sur la fonction statique loader
   static public function autoload() {
     spl_autoload_register(array(__CLASS__, 'loader'));
