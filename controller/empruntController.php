@@ -8,9 +8,10 @@
   class empruntController {
 
       public function sortMaterielList() {
+        $tri = 'tri';
         $manager = new empruntManager();
         //récupère la liste de tous le materiel
-        $materiels = $manager->getSortedMateriels($_POST);
+        $materiels = $manager->getSortedMateriels($tri);
         
         if(isset($_POST) && !empty($_POST)) {
           //alors fonction avec requete de tri
