@@ -55,7 +55,43 @@ function getRoutes() {
      ],
      "status" => "admin"
     ],
+
     // END MATERIEL ROUTES
+    //start roads for borrow
+   "emprunter/list" => [
+     "emprunt",
+     "sortMaterielList",
+     "status" => "user"
+   ],
+
+   "emprunter" => [
+      "emprunt",
+      "emprunter",
+      ["id" => ["integer"]
+    ],
+      "status" => "user"
+    ],
+
+    "restituer/list" => [
+      "emprunt",
+      "sortMaterielList",
+      "status" => "admin"
+    ],
+
+    "emprunts/restituer" => [
+      "emprunt",
+      "restituer",
+      ['id' => ['integer']
+    ],
+      "status" => "admin"
+],
+    "emprunts/list" => [
+      "emprunt",
+      "getSortedMyEmprunts",
+      "status" => "user"
+
+    ]
+// end roads for borrow
   ];
 }
 
