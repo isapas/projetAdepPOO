@@ -10,7 +10,13 @@ function initializeAnonymousSession() {
 function initializeUserSession($user) {
   session_start();
   $_SESSION["user"] = $user;
+  $_SESSION["codeMsg"] =[]; //session des codes message succes ou erreur
 }
+
+function initializeMsgSession() {
+    session_start();
+    $_SESSION["codeMsg"] =[]; //session des codes message succes ou erreur
+  }
 
 //Fonction de déconnexion
 function logout() {

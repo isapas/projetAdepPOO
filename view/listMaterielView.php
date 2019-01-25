@@ -1,4 +1,4 @@
-<?php //var_dump($_SESSION["codeMsg"]); ?>
+<?php //var_dump($_SESSION["codeMsg"][0]); ?>
 <?php include "view/template/header.php"; ?>
 <?php
 //Affichage du message de confirmation ou d'erreur
@@ -14,8 +14,8 @@ if (isset($_SESSION["codeMsg"][0])) { ?>
         <div class="modal-body">
           <div class="alert alert-success text-center mt-2" role="alert">
             <?php
-            echo afficheErrorMsg($_SESSION["codeMsg"][0],"Le matériel");
-            array_pop($_SESSION["codeMsg"]); //retire le code de la session
+             echo afficheErrorMsg($_SESSION["codeMsg"][0],"Le matériel");
+             array_pop($_SESSION["codeMsg"]); //retire le code de la session
             ?>
           </div>
         </div>
