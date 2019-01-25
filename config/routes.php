@@ -125,7 +125,7 @@ function getRoutes() {
 ],
     "emprunts/list" => [
       "emprunt",
-      "getSortedMyEmprunts",
+      "myEmpruntsList",
       "status" => "user"
 
     ]

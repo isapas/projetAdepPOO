@@ -49,8 +49,8 @@
        return $materiels;
       }
 
-      function getSortedMyEmprunts($idEmprunteur,$tri) {
-        $text = "";
+      function getSortedMyEmprunts($emprunteur,$tri = null) {
+      /*  $text = "";
         switch ($tri) {
           case '0':
             $text .= " AND e.dateRetour IS NOT NULL";
@@ -58,18 +58,19 @@
           case '1':
             $text .= " AND e.dateRetour IS NULL";
           break;
-        }
+        }*/
 
-        $query = $this->getDb()->prepare('SELECT emp.prenom, emp.nom, m.nom as materiel, m.num_serie, e.dateEmprunt, e.dateRetour FROM `emprunt` e
-                        inner join emprunteur emp on emp.id = e.idEmprunteur
+        $query = $this->getDb()->prepare('SELECT m.nom as materiel, m.numSerie, e.dateEmprunt, e.dateRetour FROM emprunt e
                         inner join materiel m on m.id = e.idMateriel
-                        WHERE  e.idEmprunteur = ? '.$text.' order by dateEmprunt desc');
-        $query->execute([$idEmprunteur]);
+                        WHERE  e.idEmprunteur = ?');
+        $query->execute(array($emprunteur->getId()));
+       
          while ($result = $query->fetch(PDO::FETCH_ASSOC)) {
-        $emprunts[] = new emprunt($result);
+          $myEmprunts[] = new emprunt($result);
        }
         $query->closeCursor();
-        return $result;
+        return $myEmprunts;
+        //var_dump($result);
       }
     }
  ?>
