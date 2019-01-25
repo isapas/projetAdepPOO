@@ -31,9 +31,10 @@ if (isset($_SESSION["codeMsg"][0])) { ?>
 <main>
   <div class="container">
     <section class="d-flex flex-row justify-content-between">
-      <h1 class="col-4 mt-0">Emprunter du matériel</h1>
+      <div class="d-flex justify-content-between mb-3">
+         <h1 class="col-4 mt-0">Emprunter du matériel</h1>
       <?php require "form/sortEmpruntsListForm.php"; ?>
-
+    </div>
     </section>
     </div>
     <div class="container">

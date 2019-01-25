@@ -72,7 +72,7 @@ function getRoutes() {
       "status" => "user"
     ],
 
-    /*"restituer/list" => [
+    "restituer/list" => [
       "emprunt",
       "sortMaterielList",
       "status" => "admin"
@@ -90,7 +90,7 @@ function getRoutes() {
       "getSortedMyEmprunts",
       "status" => "user"
 
-    ]*/
+    ]
 // end roads for borrow
   ];
 }

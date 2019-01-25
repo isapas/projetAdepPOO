@@ -11,16 +11,16 @@
 	//methods
 		//setters
 
-		public function setDateEmprunt() {
+		public function setDateEmprunt($dateEmprunt) {
 			$this->dateEmprunt = $dateEmprunt;
 		}
-		public function setDateRetour() {
+		public function setDateRetour($dateRetour) {
 			$this->dateRetour = $dateRetour;
 		}
-		public function setIdEmprunteur(int $id) {
+		public function setIdEmprunteur($idEmprunteur) {
 			$this->idEmprunteur = $idEmprunteur;
 		}
-		public function setIdMateriel(int $id) {
+		public function setIdMateriel($idMateriel) {
 			$this->idMateriel = $idMateriel;
 		}
 

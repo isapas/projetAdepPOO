@@ -4,11 +4,11 @@
 
     //fonction pour ajouter un emprunt,qui attend un objet emprunt
     public function addEmprunt(emprunt $emprunt) {
-             $now = (new DateTime('now'))->format('Y-m-d H:i:s');
+      $now = (new DateTime('now'))->format('Y-m-d H:i:s');
       $query = $this->getDb()->prepare('INSERT INTO emprunt(idEmprunteur, idMateriel, dateEmprunt) VALUES( :idEmprunteur, :idMateriel, :dateEmprunt)');
         $result = $query->execute(array(
-          'idEmprunteur' =>  $idEmprunteur,
-           'idMateriel' => $idMateriel,
+          'idEmprunteur' =>  $emprunt->getIdEmprunteur(),
+           'idMateriel' => $emprunt->getIdMateriel(),
             'dateEmprunt' =>$now)
           );
         $query->closeCursor();
@@ -20,7 +20,7 @@
         
         $query = $this->getDb()->prepare ('UPDATE materiel SET etat = :etat WHERE id = :id');
         $result = $query->execute(array(
-          'id' => $idMateriel, 
+          'id' => $emprunt->getIdMateriel(),
           'etat' =>  0)
           );
         $query->closeCursor();
@@ -65,7 +65,9 @@
                         inner join materiel m on m.id = e.idMateriel
                         WHERE  e.idEmprunteur = ? '.$text.' order by dateEmprunt desc');
         $query->execute([$idEmprunteur]);
-        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+         while ($result = $query->fetch(PDO::FETCH_ASSOC)) {
+        $emprunts[] = new emprunt($result);
+       }
         $query->closeCursor();
         return $result;
       }

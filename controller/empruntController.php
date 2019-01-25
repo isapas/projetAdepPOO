@@ -1,6 +1,7 @@
 <?php
   
   require "model/empruntManager.php";
+  require "model/emprunteurManager.php";
   require "model/materielManager.php"; //pour les fonctions qui servent à l'emprunt
   //var_dump(implode(',',getdate()));
   require "service/errorMsg.php";
@@ -32,24 +33,29 @@
         }
 
     	public function emprunter() {
-        $emprunt = new empruntManager();
-    	  $idEmprunteur = intval($_SESSION['user'->getIdEmprunteur()]);
-    	  if ((isset($_GET['id'->getId()])) && (!empty($_GET['id'->getId()]))) {
-  	      $idMateriel = intval($_GET['id'->getIdMateriel()]);
-           var_dump($idMateriel);
-  	      if(addEmprunt($idMateriel, $idEmprunteur)) {
-  	        if(updateEtatMateriel( $idMateriel)) {
-  	          array_push($_SESSION["codeMsg"/*->getMsg() */], "3"); //ajoute le code msg à la session code
+        $manager = new empruntManager();
+    	  $emprunteur = $_SESSION['user'];
+        $idEmprunteur = $emprunteur->getId();
+        $idEmprunteur = intval($idEmprunteur);
+       // var_dump($idEmprunteur);
+
+    	  if ((isset($_GET['id'])) && (!empty($_GET['id']))) {
+  	      $idMateriel = intval($_GET['id']);
+            $emprunt= new emprunt(['idMateriel'=>$idMateriel , 'idEmprunteur'=>$idEmprunteur]);
+         // var_dump($idMateriel);
+  	      if($manager->addEmprunt($emprunt)) {
+  	        if($manager->updateEtatMateriel($emprunt)) {
+  	          //array_push($_SESSION["codeMsg"], "3"); //ajoute le code msg à la session code
 
   	          redirectTo("emprunter/list");
   	        }
   	        else {
-  	          array_push($_SESSION["codeMsg"], "4");
+  	        //  array_push($_SESSION["codeMsg"], "4");
   	          redirectTo("emprunter/list");
   	        }
   	      }
   	      else {
-  	        array_push($_SESSION["codeMsg"], "4");
+  	      //  array_push($_SESSION["codeMsg"], "4");
   	        redirectTo("emprunter/list");
   	      }
   	    }
