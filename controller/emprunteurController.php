@@ -1,16 +1,16 @@
 <?php
 require "model/dataBase.php";
-require "model/entity/materiel.php";
-require "model/materielManager.php";
+//require "model/entity/emprunteur.php";
+require "model/emprunteurManager.php";
 
-class materielController{
+class emprunteurController{
 
-  public function listMateriel() {
-    $manager = new materielManager();
+  public function listEmprunteur() {
+    $manager = new emprunteurManager();
     //recuperation de la liste de tous les comptes dans la bdd
-    $materiels = $manager->getList();
+    $emprunteurs = $manager->getList();
     // Affichage liste des comptes
-    require "view/listMaterielView.php";
+    require "view/listEmprunteurView.php";
     }
 
 
@@ -19,22 +19,27 @@ class materielController{
     $title = "Ajout";
     $buttonTitle = "Ajouter";
     $buttonClass = "btn btn-primary";
+
     if (isset($_POST) && !empty($_POST)) {
-      $manager = new materielManager();
-      $materiel = new materiel($_POST);
-      if ($manager->addMateriel($materiel))//ADD
+      $_POST["password"] = password_hash($_POST["password"], PASSWORD_DEFAULT);
+      $manager = new emprunteurManager();
+      $emprunteur = new emprunteur($_POST);
+      if ($manager->addEmprunteur($emprunteur))//ADD
           {
             array_push($_SESSION["codeMsg"], "3"); //ajoute le code msg à la session code
-            redirectTo("materiels");
+            // var_dump($emprunteur);
+            redirectTo("emprunteurs");
           }
       else
           {
             array_push($_SESSION["codeMsg"], "4");
-            redirectTo("materiels");
+            // var_dump($emprunteur);
+            redirectTo("emprunteurs");
           }
     }
-    require "view/materielView.php";
+    require "view/emprunteurView.php";
   }
+
 
   public function edit(){
     $action = "edit";
@@ -43,25 +48,28 @@ class materielController{
     $buttonClass = "btn btn-primary";
     if (isset($_GET["id"]) && !empty($_GET["id"])) {
       $id = intval($_GET["id"]);
-      $manager = new materielManager();
-      $materiel = $manager->getById($id);
+      $manager = new emprunteurManager();
+      $emprunteur = $manager->getById($id);
     }
 
     if (isset($_POST) && !empty($_POST)) {
-        $materiel = new materiel($_POST);
-        if($manager->updateMateriel($materiel))//UPDATE
+        $newEmprunteur = new emprunteur($_POST);
+        if($newEmprunteur->getPassword() !== $emprunteur->getPassword()) {
+          $newEmprunteur->setPassword(password_hash($_POST["password"], PASSWORD_DEFAULT));
+        }
+        if($manager->updateEmprunteur($newEmprunteur))//UPDATE
           {
             array_push($_SESSION["codeMsg"], "1");
-            redirectTo("materiels");
+            redirectTo("emprunteurs");
           }
         else
           {
             array_push($_SESSION["codeMsg"], "2");
-            //var_dump($materiel);
-            redirectTo("materiels");
+            // var_dump($emprunteur);
+            redirectTo("emprunteurs");
           }
     }
-    require "view/materielView.php";
+    require "view/emprunteurView.php";
   }
 
   public function delete(){
@@ -70,23 +78,23 @@ class materielController{
     if (isset($_GET["id"]) && !empty($_GET["id"])) {
       $id = intval($_GET["id"]);
     }
-    $manager = new materielManager();
-    $materiel = $manager->getById($id);
+    $manager = new emprunteurManager();
+    $emprunteur = $manager->getById($id);
     $buttonTitle = "Supprimer";
     $buttonClass = "btn btn-warning";
     if (isset($_POST) && !empty($_POST)) {
-      if ($manager->deleteMateriel($_POST["id"]))//DELETE
+      if ($manager->deleteEmprunteur($_POST["id"]))//DELETE
           {
             array_push($_SESSION["codeMsg"], "5");
-            redirectTo("materiels");
+            redirectTo("emprunteurs");
           }
       else
           {
             array_push($_SESSION["codeMsg"], "6");
-            redirectTo("materiels");
+            redirectTo("emprunteurs");
           }
     }
-    require "view/materielView.php";
+    require "view/emprunteurView.php";
   }
 
 }
