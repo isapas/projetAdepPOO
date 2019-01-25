@@ -55,13 +55,13 @@ if (isset($_SESSION["codeMsg"][0])) { ?>
          ?>
         <tbody>
           <tr>
-            <td scope="row"><?php echo $materiel['nom'->getMateriel] ?></td>
-            <td class="d-none d-md-table-cell text-center"><?php echo $materiel['description'] ?> </td>
-            <td class="d-none d-md-table-cell text-center"><?php echo ($materiel['etat']== 1)?"En stock":"Indisponible"; ?></td>
-            <td class="d-none d-md-table-cell text-center"><?php echo ($materiel['acces']==1)?"Libre":"Restreint"; ?></td>
+            <td scope="row"><?php echo $materiel->getNom(); ?></td>
+            <td class="d-none d-md-table-cell text-center"><?php echo $materiel->getDescription(); ?> </td>
+            <td class="d-none d-md-table-cell text-center"><?php echo ($materiel->getEtat()== 1)?"En stock":"Indisponible"; ?></td>
+            <td class="d-none d-md-table-cell text-center"><?php echo ($materiel->getAcces()==1)?"Libre":"Restreint"; ?></td>
             <td>
               <div>
-                <a <?php setHref('emprunter',['id' => $materiel['id']]) ?> class='btn btn-primary btn-xs text-center <?php echo ($materiel['etat']== 0)?"disabled bts-secondary":""; ?> ' > Emprunter</a>
+                <a <?php setHref('emprunter',['id' => $materiel->getId()]) ?> class='btn btn-primary btn-xs text-center <?php echo ($materiel->getEtat()== 0)?"disabled bts-secondary":""; ?> ' > Emprunter</a>
               </div>
             </td>
           </tr>

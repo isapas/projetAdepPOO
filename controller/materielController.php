@@ -57,8 +57,8 @@ class materielController{
         else
           {
             array_push($_SESSION["codeMsg"], "2");
-            var_dump($materiel);
-            //redirectTo("materiels");
+            //var_dump($materiel);
+            redirectTo("materiels");
           }
     }
     require "view/materielView.php";

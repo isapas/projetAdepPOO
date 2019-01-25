@@ -41,9 +41,12 @@
           break;
           }
        $requete = $this->getDb()->query('SELECT * FROM materiel'. $text);
-       $result = $requete->fetchAll(PDO::FETCH_ASSOC);
+       $materiels = [];
+       while ($result = $requete->fetch(PDO::FETCH_ASSOC)) {
+        $materiels[] = new materiel($result);
+       }
        $requete->closeCursor();
-       return $result;
+       return $materiels;
       }
 
       function getSortedMyEmprunts($idEmprunteur,$tri) {

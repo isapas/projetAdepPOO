@@ -8,38 +8,39 @@
   class empruntController {
 
       public function sortMaterielList() {
-        $tri = 'tri';
         $manager = new empruntManager();
-        //récupère la liste de tous le materiel
-        $materiels = $manager->getSortedMateriels($tri);
-        
+      
         if(isset($_POST) && !empty($_POST)) {
           //alors fonction avec requete de tri
-          if(getSortedMateriels($_POST['triMaterielsEmprunts'])){
-            $materiels = getSortedMateriels($_POST['triMaterielsEmprunts']);
+          if($manager->getSortedMateriels($_POST['triMaterielsEmprunts'])){
+            $materiels = $manager->getSortedMateriels($_POST['triMaterielsEmprunts']);
           }
           else {
             $materiels = NULL;
           }
         }
         else {
-          if(getSortedMateriels($_POST['nomAZ'])){
-          $materiels = getSortedMateriels($_POST['nomAZ']);
+          if($manager->getSortedMateriels('nomAZ')){
+          $materiels = $manager->getSortedMateriels('nomAZ');
           }
           else {
             $materiels = NULL;
           }
         }
-        require "view/empruntsView.php";
+
+        require "view/empruntView.php";
         }
 
     	public function emprunter() {
+        $emprunt = new empruntManager();
     	  $idEmprunteur = intval($_SESSION['user'->getIdEmprunteur()]);
     	  if ((isset($_GET['id'->getId()])) && (!empty($_GET['id'->getId()]))) {
   	      $idMateriel = intval($_GET['id'->getIdMateriel()]);
+           var_dump($idMateriel);
   	      if(addEmprunt($idMateriel, $idEmprunteur)) {
   	        if(updateEtatMateriel( $idMateriel)) {
   	          array_push($_SESSION["codeMsg"/*->getMsg() */], "3"); //ajoute le code msg à la session code
+
   	          redirectTo("emprunter/list");
   	        }
   	        else {
