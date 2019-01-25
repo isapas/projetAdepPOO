@@ -56,6 +56,43 @@ function getRoutes() {
      "status" => "admin"
     ],
     // END MATERIEL ROUTES
+
+
+
+    // START EMPRUNTEUR ROUTES
+
+    "emprunteurs" => [
+     "emprunteur",
+     "listEmprunteur",
+     "status" => "admin"
+   ],
+
+   "emprunteurs/ajout" => [
+    "emprunteur",
+    "add",
+    "status" => "admin"
+   ],
+
+   "emprunteurs/edit" => [
+    "emprunteur",
+    "edit",
+    ["id" => ["integer"]
+   ],
+     "status" => "admin"
+   ],
+
+   "emprunteurs/suppr" => [
+    "emprunteur",
+    "delete",
+    ["id" => ["integer"]
+   ],
+     "status" => "admin"
+   ],
+
+
+   // END EMPRUNTEUR ROUTES
+
+
   ];
 }
 
