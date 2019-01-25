@@ -27,9 +27,23 @@
             $materiels = NULL;
           }
         }
-
         require "view/empruntView.php";
         }
+
+         public function myEmpruntsList(){
+          $manager = new empruntManager();
+          $myEmprunts = $manager->getSortedMyEmprunts($_SESSION['user']);
+          //var_dump($myEmprunts);
+
+          
+          require "view/listMyEmpruntsView.php";
+      }
+
+    public function restituer() {
+      updateDateRendu();
+      updateEtatMaterielRendu();
+      require "view/restituerEmpruntView.php";
+      }
 
     	public function emprunter() {
         $manager = new empruntManager();
@@ -62,10 +76,11 @@
   	  }
 
 	  //fonction qui affiche tous les emprunts en cours dans la vue
-	  public function allEmpruntsList() {
+	 /* public function allEmpruntsList() {
   		$emprunts->getEmprunts();
   		require "view/restituerEmpruntView.php";
-  	}
+  	}*/
+
 
 
     public function myEmpruntsList(){
@@ -93,6 +108,7 @@
       updateEtatMaterielRendu();
       require "view/restituerEmpruntView.php";
       }
+
   }
 
 ?>

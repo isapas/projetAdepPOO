@@ -8,8 +8,7 @@
         <option value="etat">Disponibilité</option>
       </select>
     </div>
-    <div class="col-auto my-1">
-    </div>
+
     <div class="col-auto my-1">
       <button type="submit" class="btn btn-primary">OK</button>
     </div>

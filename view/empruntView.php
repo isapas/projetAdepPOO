@@ -29,14 +29,15 @@ if (isset($_SESSION["codeMsg"][0])) { ?>
   </div>
   <?php } ?>
 <main>
-  <div class="container">
-    <section class="d-flex flex-row justify-content-between">
-      <div class="d-flex justify-content-between mb-3">
-         <h1 class="col-4 mt-0">Emprunter du matériel</h1>
-      <?php require "form/sortEmpruntsListForm.php"; ?>
+  <section class="container">
+    <div class="d-flex flex-column my-3">
+      <div class="d-flex justify-content-between mb-0">
+         <h1 class="col-6 mb-0 mt-0">Emprunter du matériel</h1>
+         <?php require "form/sortEmpruntsListForm.php"; ?>
+      </div>
     </div>
-    </section>
-    </div>
+  </section>
+
     <div class="container">
       <table class="table table-hover">
         <thead class="thead-light">
