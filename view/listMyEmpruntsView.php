@@ -24,17 +24,17 @@
 									if (!is_null($myEmprunts)) {
                     // On affiche chaque entrée une à une
                     foreach ($myEmprunts as $key => $emprunt) {
-                      $dateEmprunt = new DateTime($emprunt["dateEmprunt"->getDateEmprunt()]);
-                      if ($emprunt["dateRetour"->getDateRetour()]) {
-                       $dateRetour = new DateTime($emprunt["dateRetour"->getDateRetour()]);
+                      $dateEmprunt = new DateTime($emprunt->getDateEmprunt());
+                      if ($emprunt->getDateRetour()) {
+                       $dateRetour = new DateTime($emprunt->getDateRetour());
                        $dateRetour = "Rendu le ".$dateRetour->format('d/m/Y');
                      }else {
                        $dateRetour = "En cours d'emprunt";
                      }
                   ?> 
                   <tr class="text-center d-flex">
-                    <td class="col-6 text-left"><?php echo $emprunt["materiel"->getMateriel()]; ?></td>
-                    <td class="col-2 d-none d-md-table-cell"><?php echo $emprunt["numSerie"->getNumSerie()]; ?></td>
+                    <td class="col-6 text-left"><?php echo $emprunt->myEmpruntsList(); ?></td>
+                    <td class="col-2 d-none d-md-table-cell"><?php echo $emprunt->getNumSerie(); ?></td>
                     <td class="col-2 d-none d-lg-table-cell"><?php echo $dateEmprunt->format('d/m/Y'); ?></td>
                     <td class="col-2 d-none d-lg-table-cell"><?php echo $dateRetour->format('d/m/Y'); ?></td>
                   </tr>

@@ -33,7 +33,7 @@
          public function myEmpruntsList(){
           $manager = new empruntManager();
           $myEmprunts = $manager->getSortedMyEmprunts($_SESSION['user']);
-          //var_dump($myEmprunts);
+          var_dump($myEmprunts);
 
           
           require "view/listMyEmpruntsView.php";
@@ -83,31 +83,31 @@
 
 
 
-    public function myEmpruntsList(){
-      if (isset($_POST) && !empty($_POST)) {
-        if(getMyEmpruntsTri($_SESSION['user'->getId()],$_POST['tri'])){
-          $myEmprunts = getMyEmpruntsTri($_SESSION['user'->getId()],$_POST['tri']);
-        }
-        else {
-          $myEmprunts = NULL;
-        }
-      }
-      else {
-        if(getMyEmpruntsTri($_SESSION['user'->getId()],2)){
-          $myEmprunts = getMyEmpruntsTri($_SESSION['user'->getId()],2);
-        }
-        else {
-          $myEmprunts = NULL;
-        }
-      }
-      require "view/listMyEmpruntsView.php";
-      }
+    // public function myEmpruntsList(){
+    //   if (isset($_POST) && !empty($_POST)) {
+    //     if(getMyEmpruntsTri($_SESSION['user'->getId()],$_POST['tri'])){
+    //       $myEmprunts = getMyEmpruntsTri($_SESSION['user'->getId()],$_POST['tri']);
+    //     }
+    //     else {
+    //       $myEmprunts = NULL;
+    //     }
+    //   }
+    //   else {
+    //     if(getMyEmpruntsTri($_SESSION['user'->getId()],2)){
+    //       $myEmprunts = getMyEmpruntsTri($_SESSION['user'->getId()],2);
+    //     }
+    //     else {
+    //       $myEmprunts = NULL;
+    //     }
+    //   }
+    //   require "view/listMyEmpruntsView.php";
+    //   }
 
-    public function restituer() {
-      updateDateRendu();
-      updateEtatMaterielRendu();
-      require "view/restituerEmpruntView.php";
-      }
+    // public function restituer() {
+    //   updateDateRendu();
+    //   updateEtatMaterielRendu();
+    //   require "view/restituerEmpruntView.php";
+    //   }
 
   }
 
